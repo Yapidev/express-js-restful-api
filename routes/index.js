@@ -38,10 +38,10 @@ router.post("/admin/users", verifyToken, validateUser, userController.createUser
 router.get("/admin/users/:id", verifyToken, userController.findUserById);
 
 // define route update user
-route.put("/admin/users/:id", verifyToken, validateUser, userController.updateUser);
+router.put("/admin/users/:id", verifyToken, validateUser, userController.updateUser);
 
 // define route delete user
-route.delete("/admin/users/:id", verifyToken, userController.deleteUser);
+router.delete("/admin/users/:id", verifyToken, userController.deleteUser);
 
 // export router
 module.exports = router;

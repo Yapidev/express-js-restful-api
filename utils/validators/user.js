@@ -21,12 +21,14 @@ const validateUser = [
                     email: value,
                 },
             });
-            if (user && user.id !== req.params.id) {
+            if (user && user.id !== Number(req.params.id)) {
                 throw new Error("Email already exists");
             }
             return true;
         }),
     body("password")
+        .notEmpty()
+        .withMessage("Password is required")
         .isLength({ min: 6 })
         .withMessage("Password must be at least 6 characters long"),
 ];
